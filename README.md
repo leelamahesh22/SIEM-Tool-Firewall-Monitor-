@@ -13,9 +13,8 @@ Detects and alerts on suspicious firewall activity.
 **Setup Instructions**
 
 **Clone the repository:**
-bash
-Copy code
-git clone https://github.com/your_username/your_repository.git
+
+git clone https://github.com/leelamahesh22/siemtool.git
 
 **Install the required dependencies:**
 
