@@ -2,7 +2,7 @@
 
 **Description**
 
-This Python script monitors firewall log files for suspicious activity and generates alerts when necessary.
+This Project monitors firewall log files for suspicious activity and generates alerts when necessary.
 
 **Features**
 
