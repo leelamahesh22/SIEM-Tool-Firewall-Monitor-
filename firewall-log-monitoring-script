@@ -83,5 +83,5 @@ def monitor_firewall_log(log_file_path):
         print(f"Error: An unexpected error occurred: {e}")
 
 if __name__ == "__main__":
-    log_file_path = r'C:\Users\hiyas\OneDrive\Desktop\pfirewall.log1.txt'
+    log_file_path = r'location of the file'
     monitor_firewall_log(log_file_path)
