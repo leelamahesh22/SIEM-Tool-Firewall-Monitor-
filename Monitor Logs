@@ -1,39 +1,38 @@
 import os
 import time
 
-def monitor_firewall_log(log_file_path):
+def watch_firewall_log(file_path):
     try:
-        if not os.path.exists(log_file_path):
-            print(f"Error: Log file '{log_file_path}' not found.")
+        if not os.path.isfile(file_path):
+            print(f"Error: The log file '{file_path}' does not exist.")
             return
 
-        print(f"Monitoring firewall log file: {log_file_path}")
+        print(f"Watching firewall log file: {file_path}")
 
-
-        # Get initial file size
-        current_file_size = os.path.getsize(log_file_path)
+        # Get the initial size of the file
+        initial_size = os.path.getsize(file_path)
 
         while True:
-            # Get current file size
-            new_file_size = os.path.getsize(log_file_path)
+            # Get the current size of the file
+            current_size = os.path.getsize(file_path)
 
-            # Check if the file size has increased (new entries added)
-            if new_file_size > current_file_size:
-                print("New entries detected!")
+            # Check if new entries have been added to the file
+            if current_size > initial_size:
+                print("Detected new log entries!")
 
-                # Open the log file and read new entries
-                with open(log_file_path, 'r') as log_file:
-                    log_file.seek(current_file_size)  # Move to the last read position
-                    new_entries = log_file.read(new_file_size - current_file_size)
+                # Open the log file and read the new entries
+                with open(file_path, 'r') as file:
+                    file.seek(initial_size)  # Move to the last read position
+                    new_data = file.read(current_size - initial_size)
 
-                    # Display new entries
-                    print("New Entries:")
-                    print(new_entries)
+                    # Display the new log entries
+                    print("New Log Entries:")
+                    print(new_data)
 
-                # Update current file size
-                current_file_size = new_file_size
+                # Update the initial size to the current size
+                initial_size = current_size
 
-            # Sleep for a short interval (e.g., 5 seconds) before checking again
+            # Wait for a short interval before checking again
             time.sleep(5)
 
     except Exception as e:
@@ -41,4 +40,4 @@ def monitor_firewall_log(log_file_path):
 
 if __name__ == "__main__":
     log_file_path = r'location of the path in text format'
-    monitor_firewall_log(log_file_path)
+    watch_firewall_log(log_file_path)
