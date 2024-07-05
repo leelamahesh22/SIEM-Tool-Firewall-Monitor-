@@ -35,7 +35,7 @@ def parse_firewall_logs(log_file_path):
     return log_entries
 
 
-desktop_path = "C:\\Users\\hiyas\\OneDrive\\Desktop\\"  # Update with your desktop path
+desktop_path = "location of the file"  # Update with your desktop path
 firewall_log_path = desktop_path + "pfirewall.log1.txt"
 
 parsed_logs = parse_firewall_logs(firewall_log_path)
