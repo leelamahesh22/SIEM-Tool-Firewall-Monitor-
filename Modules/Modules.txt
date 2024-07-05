@@ -1,0 +1,4 @@
+1. Log Parsing Module 
+2. Suspicious Activity Detection Module
+3. Alert Generation Module 
+4. Continuous Monitoring Module
